@@ -2,7 +2,7 @@ $(function () {
     initMap();
 })
 //地图界面高度设置
-
+<p>test</p>
 //加载地图
 function initMap() {
     // 百度地图API功能
