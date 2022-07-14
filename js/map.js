@@ -1,16 +1,14 @@
-
 $(function () {
     initMap();
 })
 //地图界面高度设置
 
-
-
 //加载地图
 function initMap() {
     // 百度地图API功能
     var map = new BMapGL.Map("map_div");    // 创建Map实例
-    map.centerAndZoom(new BMapGL.Point(116.718, 40.142), 11);  // 初始化地图,设置中心点坐标和地图级别
+    map.centerAndZoom(new BMapGL.Point(-118.2695, 33.9825), 11);  // 初始化地图,设置中心点坐标和地图级别
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     //添加地图类型控件
     var size1 = new BMapGL.Size(10, 20);
     map.addControl(new BMapGL.MapTypeControl({
@@ -22,9 +20,7 @@ function initMap() {
     }));
 
     var bd = new BMapGL.Boundary();
-    bd.get('顺义区', function (rs) {
-        // console.log('外轮廓：', rs.boundaries[0]);
-        // console.log('内镂空：', rs.boundaries[1]);
+    bd.get('洛杉矶', function (rs) {
         var hole = new BMapGL.Polygon(rs.boundaries, {
             fillColor: 'blue',
             fillOpacity: 0.2
@@ -46,7 +42,6 @@ function initMap() {
         var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
         addMarker(point);
     };
-    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
     // 设备地图颜色
     // var mapStyle = {
     //     style: "midnight"
