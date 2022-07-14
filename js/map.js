@@ -2,7 +2,7 @@ $(function () {
     initMap();
 })
 //地图界面高度设置
-<p>test</p>
+
 //加载地图
 function initMap() {
     // 百度地图API功能
@@ -44,27 +44,6 @@ function initMap() {
         var point = new BMapGL.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
         addMarker(point);
     };
-<<<<<<< HEAD
-=======
-
-    // hover
-    // map.addEventListener("onmousemove",function(e){
-    //     if(map_div.contains(window.event.srcElement))
-    //     {
-    //         console.log(e.point.lng + "," + e.point.lat);
-    //     }
-        
-    // });
-
-    // 点击
-    map.addEventListener("click",function(e){
-        if(map_div.contains(window.event.srcElement))
-        {
-            console.log(e.point.lng + "," + e.point.lat);
-        }
-        
-    });
->>>>>>> aad090d2e9b5279a6a5e1423e79b7a0421c7a974
     // 设备地图颜色
     // var mapStyle = {
     //     style: "midnight"
