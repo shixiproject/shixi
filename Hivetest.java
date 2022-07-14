@@ -33,5 +33,21 @@ public class Hivetest
         }
 
         System.out.println("end----------------");
+        
+         con.close();
+    }
+     @Test
+    public void hivecrimedatatest() throws Exception
+    {
+        //查询各个年龄段的犯罪次数
+        Class.forName("org.apache.hive.jdbc.HiveDriver");
+        Connection con = DriverManager.getConnection(String.format("jdbc:hive2://%s:10000/crimedatabase",hadoop1url),"root","");
+        Statement stmt = con.createStatement();
+        ResultSet res = stmt.executeQuery("SELECT victage,count(*)as num FROM crimedata group by victage having victage>0 order by victage");
+        while (res.next())
+        {
+            System.out.println(String.format("victage %s;num %s",res.getInt("victage"),res.getInt("num")));
+        }
+        con.close();
     }
 }
