@@ -9,11 +9,11 @@ $(function () {
 //加载地图
 function initMap() {
     // 百度地图API功能
-    var map = new BMap.Map("map_div");    // 创建Map实例
-    map.centerAndZoom(new BMap.Point(116.718, 40.142), 11);  // 初始化地图,设置中心点坐标和地图级别
+    var map = new BMapGL.Map("map_div");    // 创建Map实例
+    map.centerAndZoom(new BMapGL.Point(116.718, 40.142), 11);  // 初始化地图,设置中心点坐标和地图级别
     //添加地图类型控件
-    var size1 = new BMap.Size(10, 50);
-    map.addControl(new BMap.MapTypeControl({
+    var size1 = new BMapGL.Size(10, 20);
+    map.addControl(new BMapGL.MapTypeControl({
         offset: size1,
         mapTypes: [
             BMAP_NORMAL_MAP,
@@ -21,6 +21,16 @@ function initMap() {
         ]
     }));
 
+    var bd = new BMapGL.Boundary();
+    bd.get('顺义区', function (rs) {
+        // console.log('外轮廓：', rs.boundaries[0]);
+        // console.log('内镂空：', rs.boundaries[1]);
+        var hole = new BMapGL.Polygon(rs.boundaries, {
+            fillColor: 'blue',
+            fillOpacity: 0.2
+        });
+        map.addOverlay(hole);
+    });
     // 编写自定义函数,创建标注
     function addMarker(point) {
         var marker = new BMap.Marker(point);
