@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>ECharts</title>
+    <!-- 引入刚刚下载的 ECharts 文件 -->
+    <script src="js/echarts.min.js"></script>
+    <script type ="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<div id="main1" style="width: 600px;height: 400px"></div>
+<div id="main2" style="width: 600px;height: 400px"></div>
+<script type="text/javascript">
+    // var pieData=[]
+  var echart1=echarts.init(document.getElementById("main1"));
+  var option1 = {
+    title: {
+      text: 'Referer of a Website',
+      left: 'center'
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      orient: 'vertical',
+      left: 'left'
+    },
+    series: [
+      {
+        name: 'Access From',
+        type: 'pie',
+        radius: '50%',
+        data:  [
+            { value: 1048, name: 'Search Engine' },
+            { value: 735, name: 'Direct' },
+            { value: 580, name: 'Email' },
+            { value: 484, name: 'Union Ads' },
+            { value: 300, name: 'Video Ads' }
+        ],
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    ]
+  };
+  echart1.setOption(option1);
+
+  //从后台获取对应饼图数据
+  //   $.getJSON("echarts/pie",function(result){
+  //       console.log(result);
+  //       pieData=result;
+  //       echart1.setOption(option1);
+  //   })
+
+  var echart2=echarts.init(document.getElementById("main2"));
+    let base = +new Date(1988, 9, 3);
+    let oneDay = 24 * 3600 * 1000;
+    let data = [[base, Math.random() * 300]];
+    for (let i = 1; i < 20000; i++) {
+        let now = new Date((base += oneDay));
+        data.push([+now, Math.round((Math.random() - 0.5) * 20 + data[i - 1][1])]);
+    }
+    var option2 = {
+        tooltip: {
+            trigger: 'axis',
+            position: function (pt) {
+                return [pt[0], '10%'];
+            }
+        },
+        title: {
+            left: 'center',
+            text: 'Large Ara Chart'
+        },
+        toolbox: {
+            feature: {
+                dataZoom: {
+                    yAxisIndex: 'none'
+                },
+                restore: {},
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'time',
+            boundaryGap: false
+        },
+        yAxis: {
+            type: 'value',
+            boundaryGap: [0, '100%']
+        },
+        dataZoom: [
+            {
+                type: 'inside',
+                start: 0,
+                end: 20
+            },
+            {
+                start: 0,
+                end: 20
+            }
+        ],
+        series: [
+            {
+                name: 'Fake Data',
+                type: 'line',
+                smooth: true,
+                symbol: 'none',
+                areaStyle: {},
+                data: data
+            }
+        ]
+    };
+  echart2.setOption(option2);
+</script>
+</body>
+</html>

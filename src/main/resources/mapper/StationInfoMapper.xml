@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.tedu.nybike.mapper.StationInfoMapper">
+    <insert id="insertInfo" parameterType="cn.tedu.nybike.pojo.StationInfo">
+        insert into station_info (stationid, name, shortName, lon, lat) values
+            (#{stationid}, #{name}, #{shortName}, #{lon}, #{lat})
+    </insert>
+
+    <insert id="insertInfos" parameterType="cn.tedu.nybike.pojo.StationInfo">
+        insert into station_info (stationid, name, shortName, lon, lat) values
+        <foreach collection="list" separator="," item="item">
+            (#{item.stationid}, #{item.name}, #{item.shortName}, #{item.lon}, #{item.lat})
+        </foreach>
+    </insert>
+</mapper>

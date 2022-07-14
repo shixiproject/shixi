@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Hello, World</title>
+  <!--3. 为容器设置CSS样式-->
+  <style type="text/css">
+    html{height:100%}
+    body{height:100%;margin:0px;padding:0px}
+    #container{height:100%}
+  </style>
+  <!--1. 引入百度地图API的JS类库-->
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=1.0&type=webgl&ak=jaZpiwN1lYKh7pCYbZuIMW0BKymh8c9x"></script>
+  <!--要使用Jquery的Ajax发起请求，需要添加JQUERY的JS类库-->
+  <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+</head>
+
+<body>
+<!--2. 创建显示地图的容器-->
+<div id="container"></div>
+<!--4. 需要通过JS代码实现基础地图-->
+<script type="text/javascript">
+  // 定义保存站点ID和站点level的map集合
+  var idAndLevel = new Map();
+
+  // 创建地图实例（需要绑定容器）
+  var map = new BMapGL.Map("container");
+  // 创建点坐标
+  var point = new BMapGL.Point(-73.985689, 40.748452);
+  // 初始化地图，设置显示的中心点坐标和地图缩放级别
+  map.centerAndZoom(point, 15);
+  // 设置鼠标滚轮缩放
+  map.enableScrollWheelZoom()
+
+  // 访问站点的信息数据
+
+  // 获取站点的状态数据
+  var statusUrl = "status";
+  $.get(statusUrl, function(result){
+    // 将JSON字符串转变为JSON对象
+    result = JSON.parse(result)
+    // 获取所有的站点状态数据 --- 数组
+    var stations = result.data.stations;
+    for(var index in stations){
+      // 获取每个站点的数据
+      var station = stations[index];
+      // 获取站点的是否已经安装、是否可以借车、是否可以还车、可用车、不可用车、可用桩、不可用桩、可用电动车、站点ID
+      var installed = station.is_installed;
+      var renting = station.is_renting;
+      var returning = station.is_returning;
+      var nba = station.num_bikes_available;
+      var nbd = station.num_bikes_disabled;
+      var nda = station.num_docks_available;
+      var ndd = station.num_docks_disabled;
+      var nea = station.num_ebikes_available;
+      var stationId = station.station_id;
+
+      // 计算每个站点的Level
+      var level = getLevel(installed, renting, returning, nba, nda, nea);
+      // 将站点ID和level保存在idAndLevel集合中
+      idAndLevel.set(stationId, level);
+    }
+
+
+
+
+    // 访问站点的信息数据
+    var infoUrl = "infos";
+    $.get(infoUrl, function(result){
+      // 将字符串转变为JSON对象---数组
+      var stations = JSON.parse(result);
+      // 遍历数组
+      for(var index in stations){
+        // 从数组中获取每一个站点对象
+        var station = stations[index];
+        var lon = station.lon;
+        var lat = station.lat;
+        // 获取站点的ID
+        var stationid = station.stationid;
+        // console.log(station.lon, station.lat);
+        addMarker(lon, lat, stationid);
+      }
+    });
+
+
+
+  })
+
+  // 根据站点的状态数据，计算每个站点的level级别---》选图片
+  function getLevel(installed, renting, returning, nba, nda, nea){
+    // 如果该站点没有安装成功、不可以借车、不可以还车，---该站点不能投入使用---bi_5.png
+    if(installed==0 || returning==0 || returning==0 || (nba==0&&nda==0&&nea==0)){
+      return 5;
+    }
+    // 如果(可用车+可用电动车)/(可用车+可用电动车+可用桩) == 0  ---- 显示红色图标  bi_0.png
+    if((nba+nea)/(nba+nea+nda) == 0){
+      return 0;
+    }
+    // 如果(可用车+可用电动车)/(可用车+可用电动车+可用桩) <= 10%  ---- 显示黄色图标  bi_1.png
+    if((nba+nea)/(nba+nea+nda) <= 0.1){
+      return 1;
+    }
+    // 如果(可用车+可用电动车)/(可用车+可用电动车+可用桩) <= 50%  ---- 显示少绿色图标  bi_2.png
+    if((nba+nea)/(nba+nea+nda) <= 0.5){
+      return 2;
+    }
+    // 如果(可用车+可用电动车)/(可用车+可用电动车+可用桩) <= 70%  ---- 显示多绿色图标  bi_3.png
+    if((nba+nea)/(nba+nea+nda) <= 0.5){
+      return 3;
+    }
+    // 如果(可用车+可用电动车)/(可用车+可用电动车+可用桩) <= 100%  ---- 显示全绿色图标  bi_4.png
+    if((nba+nea)/(nba+nea+nda) <= 1){
+      return 4;
+    }
+  }
+
+
+  // 创建标注的方法
+  function addMarker(lon, lat, staitonid){
+    var p = new BMapGL.Point(lon, lat);
+
+    var level = idAndLevel.get(staitonid);
+
+    // 创建MyIcon对象            显示图片的路径        可视化区域的大小（Icon的大小）
+    var myIcon = new BMapGL.Icon("img/bi_"+level+".png", new BMapGL.Size(24, 26), {
+      anchor: new BMapGL.Size(12, 26),   // 向左移动图片宽的一半，向上移动图片的高
+      imageSize: new BMapGL.Size(24, 25)  // 图片的大小
+    });
+
+    // 自定义标注实现：Point， Icon
+    var marker = new BMapGL.Marker(p, {icon:myIcon});
+    map.addOverlay(marker);
+  }
+
+</script>
+</body>
+</html>

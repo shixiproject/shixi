@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试访问数据的页面</title>
+    <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<a href="infos">访问所有的站点信息数据</a>
+<br>
+<button value="访问所有的站点信息数据" onclick="getInfos()"></button>
+<script type="text/javascript">
+    function getInfos(){
+        // 发起JQUERY的get请求
+        // get()方法中可以指定两个参数：
+        //      1. uri：访问的路径
+        //      2. 访问该uri会返回具体的数据--result，对该返回数据的处理
+        $.get("infos", function(result){
+            result = JSON.parse(result)
+            console.log(result)
+        });
+    }
+
+    $.get("status", function(result){
+        // console.log(JSON.parse(result))
+        // 获取所有站点的数据
+        // 遍历数组
+        // 获取每个站点的数据
+        // id、可用车、可用桩、可用电动车、不可用车、不可用桩、是否安装、是否可借、是否可还
+    })
+
+</script>
+</body>
+</html>
