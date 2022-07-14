@@ -240,22 +240,42 @@ a:hover{
     width: 50%;
     height: 100%;
 }
+.con_div_text02{
+    width: 50%;
+    height: 50%;
+}
 .text01_img{
     width: 40px;
     height: 40px;
     margin-left: 5%;
-  margin-top: 35px;
+    margin-top: 35px;
+}
+.text02_img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5%;
+    margin-top: 10px;
 }
 .text01_div{
     margin-top: 15px;
     margin-left: 5%;
     text-align: center;
-
+}
+.text02_div{
+    margin-top: 5px;
+    margin-left: 5%;
 }
 .text01_div p{
     line-height: 35px;
 }
+.text02_div p{
+    line-height: 18px;
+}
 .text01_div p:nth-child(1){
+    font-size: 13px;
+    color: #ffffff;
+}
+.text02_div p:nth-child(1){
     font-size: 13px;
     color: #ffffff;
 }
@@ -263,7 +283,6 @@ a:hover{
     font-size: 28px;
     color: #ffff43;
     font-weight: 600;
-
 }
 .red{
     color: red !important;
