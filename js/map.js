@@ -20,7 +20,9 @@ function initMap() {
     }));
 
     var bd = new BMapGL.Boundary();
-    bd.get('洛杉矶', function (rs) {
+    bd.get('Torrance', function (rs) {
+        // console.log('外轮廓：', rs.boundaries[0]);
+        // console.log('内镂空：', rs.boundaries[1]);
         var hole = new BMapGL.Polygon(rs.boundaries, {
             fillColor: 'blue',
             fillOpacity: 0.2
@@ -29,7 +31,7 @@ function initMap() {
     });
     // 编写自定义函数,创建标注
     function addMarker(point) {
-        var marker = new BMap.Marker(point);
+        var marker = new BMapGL.Marker(point);
         map.addOverlay(marker);
     }
     // 随机向地图添加25个标注
@@ -39,9 +41,30 @@ function initMap() {
     var lngSpan = Math.abs(sw.lng - ne.lng);
     var latSpan = Math.abs(ne.lat - sw.lat);
     for (var i = 0; i < 25; i++) {
-        var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+        var point = new BMapGL.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
         addMarker(point);
     };
+<<<<<<< HEAD
+=======
+
+    // hover
+    // map.addEventListener("onmousemove",function(e){
+    //     if(map_div.contains(window.event.srcElement))
+    //     {
+    //         console.log(e.point.lng + "," + e.point.lat);
+    //     }
+        
+    // });
+
+    // 点击
+    map.addEventListener("click",function(e){
+        if(map_div.contains(window.event.srcElement))
+        {
+            console.log(e.point.lng + "," + e.point.lat);
+        }
+        
+    });
+>>>>>>> aad090d2e9b5279a6a5e1423e79b7a0421c7a974
     // 设备地图颜色
     // var mapStyle = {
     //     style: "midnight"
