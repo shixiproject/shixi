@@ -1,0 +1,391 @@
+[{
+	"crmcddesc": "ARSON",
+	"num": 357
+}, {
+	"crmcddesc": "ASSAULT WITH DEADLY WEAPON; AGGRAVATED ASSAULT",
+	"num": 11800
+}, {
+	"crmcddesc": "BATTERY - SIMPLE ASSAULT",
+	"num": 15051
+}, {
+	"crmcddesc": "BATTERY POLICE (SIMPLE)",
+	"num": 487
+}, {
+	"crmcddesc": "BIGAMY",
+	"num": 2
+}, {
+	"crmcddesc": "BOAT - STOLEN",
+	"num": 10
+}, {
+	"crmcddesc": "BOMB SCARE",
+	"num": 23
+}, {
+	"crmcddesc": "BRANDISH WEAPON",
+	"num": 1328
+}, {
+	"crmcddesc": "BUNCO; ATTEMPT",
+	"num": 59
+}, {
+	"crmcddesc": "BURGLARY",
+	"num": 9598
+}, {
+	"crmcddesc": "CHILD ABANDONMENT",
+	"num": 11
+}, {
+	"crmcddesc": "CHILD ABUSE (PHYSICAL) - AGGRAVATED ASSAULT",
+	"num": 367
+}, {
+	"crmcddesc": "CHILD ABUSE (PHYSICAL) - SIMPLE ASSAULT",
+	"num": 816
+}, {
+	"crmcddesc": "CHILD PORNOGRAPHY",
+	"num": 15
+}, {
+	"crmcddesc": "COUNTERFEIT",
+	"num": 29
+}, {
+	"crmcddesc": "CREDIT CARDS; FRAUD USE ($950 & UNDER",
+	"num": 14
+}, {
+	"crmcddesc": "CREDIT CARDS; FRAUD USE ($950.01 & OVER)",
+	"num": 7
+}, {
+	"crmcddesc": "CRIMINAL THREATS - NO WEAPON DISPLAYED",
+	"num": 4894
+}, {
+	"crmcddesc": "CRM AGNST CHLD (13 OR UNDER) (14-15 & SUSP 10 YRS OLDER)",
+	"num": 911
+}, {
+	"crmcddesc": "DEFRAUDING INNKEEPER/THEFT OF SERVICES; $950 & UNDER",
+	"num": 19
+}, {
+	"crmcddesc": "DEFRAUDING INNKEEPER/THEFT OF SERVICES; OVER $950.01",
+	"num": 4
+}, {
+	"crmcddesc": "DOCUMENT FORGERY / STOLEN FELONY",
+	"num": 886
+}, {
+	"crmcddesc": "EMBEZZLEMENT; PETTY THEFT ($950 & UNDER)",
+	"num": 20
+}, {
+	"crmcddesc": "EXTORTION",
+	"num": 151
+}, {
+	"crmcddesc": "GRAND THEFT / AUTO REPAIR",
+	"num": 1
+}, {
+	"crmcddesc": "ILLEGAL DUMPING",
+	"num": 19
+}, {
+	"crmcddesc": "INCEST (SEXUAL ACTS BETWEEN BLOOD RELATIVES)",
+	"num": 1
+}, {
+	"crmcddesc": "INCITING A RIOT",
+	"num": 2
+}, {
+	"crmcddesc": "INTIMATE PARTNER - AGGRAVATED ASSAULT",
+	"num": 1703
+}, {
+	"crmcddesc": "LYNCHING - ATTEMPTED",
+	"num": 2
+}, {
+	"crmcddesc": "OTHER MISCELLANEOUS CRIME",
+	"num": 1545
+}, {
+	"crmcddesc": "PICKPOCKET",
+	"num": 20
+}, {
+	"crmcddesc": "PURSE SNATCHING - ATTEMPT",
+	"num": 7
+}, {
+	"crmcddesc": "ROBBERY",
+	"num": 10250
+}, {
+	"crmcddesc": "SEX;UNLAWFUL(INC MUTUAL CONSENT; PENETRATION W/ FRGN OBJ",
+	"num": 347
+}, {
+	"crmcddesc": "SEXUAL PENETRATION W/FOREIGN OBJECT",
+	"num": 163
+}, {
+	"crmcddesc": "SHOTS FIRED AT MOVING VEHICLE; TRAIN OR AIRCRAFT",
+	"num": 54
+}, {
+	"crmcddesc": "SODOMY/SEXUAL CONTACT B/W PENIS OF ONE PERS TO ANUS OTH",
+	"num": 106
+}, {
+	"crmcddesc": "THEFT FROM MOTOR VEHICLE - ATTEMPT",
+	"num": 57
+}, {
+	"crmcddesc": "THEFT FROM PERSON - ATTEMPT",
+	"num": 28
+}, {
+	"crmcddesc": "THEFT OF IDENTITY",
+	"num": 6534
+}, {
+	"crmcddesc": "THEFT; PERSON",
+	"num": 1795
+}, {
+	"crmcddesc": "TILL TAP - PETTY ($950 & UNDER)",
+	"num": 5
+}, {
+	"crmcddesc": "TRESPASSING",
+	"num": 761
+}, {
+	"crmcddesc": "VANDALISM - FELONY ($400 & OVER; ALL CHURCH VANDALISMS)",
+	"num": 6718
+}, {
+	"crmcddesc": "ATTEMPTED ROBBERY",
+	"num": 1311
+}, {
+	"crmcddesc": "BATTERY WITH SEXUAL CONTACT",
+	"num": 543
+}, {
+	"crmcddesc": "BEASTIALITY; CRIME AGAINST NATURE SEXUAL ASSLT WITH ANIM",
+	"num": 4
+}, {
+	"crmcddesc": "BIKE - ATTEMPTED STOLEN",
+	"num": 1
+}, {
+	"crmcddesc": "BIKE - STOLEN",
+	"num": 119
+}, {
+	"crmcddesc": "BURGLARY FROM VEHICLE; ATTEMPTED",
+	"num": 214
+}, {
+	"crmcddesc": "CHILD NEGLECT (SEE 300 W.I.C.)",
+	"num": 429
+}, {
+	"crmcddesc": "CHILD STEALING",
+	"num": 187
+}, {
+	"crmcddesc": "CONTEMPT OF COURT",
+	"num": 104
+}, {
+	"crmcddesc": "CONTRIBUTING",
+	"num": 14
+}, {
+	"crmcddesc": "CRUELTY TO ANIMALS",
+	"num": 95
+}, {
+	"crmcddesc": "DISCHARGE FIREARMS/SHOTS FIRED",
+	"num": 421
+}, {
+	"crmcddesc": "DISHONEST EMPLOYEE ATTEMPTED THEFT",
+	"num": 1
+}, {
+	"crmcddesc": "DISRUPT SCHOOL",
+	"num": 10
+}, {
+	"crmcddesc": "DOCUMENT WORTHLESS ($200.01 & OVER)",
+	"num": 16
+}, {
+	"crmcddesc": "DRIVING WITHOUT OWNER CONSENT (DWOC)",
+	"num": 50
+}, {
+	"crmcddesc": "EMBEZZLEMENT; GRAND THEFT ($950.01 & OVER)",
+	"num": 83
+}, {
+	"crmcddesc": "FAILURE TO DISPERSE",
+	"num": 1
+}, {
+	"crmcddesc": "HUMAN TRAFFICKING - COMMERCIAL SEX ACTS",
+	"num": 175
+}, {
+	"crmcddesc": "KIDNAPPING",
+	"num": 240
+}, {
+	"crmcddesc": "KIDNAPPING - GRAND ATTEMPT",
+	"num": 85
+}, {
+	"crmcddesc": "LETTERS; LEWD - TELEPHONE CALLS; LEWD",
+	"num": 877
+}, {
+	"crmcddesc": "LEWD CONDUCT",
+	"num": 62
+}, {
+	"crmcddesc": "LYNCHING",
+	"num": 5
+}, {
+	"crmcddesc": "OTHER ASSAULT",
+	"num": 257
+}, {
+	"crmcddesc": "PROWLER",
+	"num": 41
+}, {
+	"crmcddesc": "RAPE; ATTEMPTED",
+	"num": 88
+}, {
+	"crmcddesc": "RECKLESS DRIVING",
+	"num": 28
+}, {
+	"crmcddesc": "REPLICA FIREARMS(SALE;DISPLAY;MANUFACTURE OR DISTRIBUTE)",
+	"num": 4
+}, {
+	"crmcddesc": "SEX OFFENDER REGISTRANT OUT OF COMPLIANCE",
+	"num": 93
+}, {
+	"crmcddesc": "SHOPLIFTING - ATTEMPT",
+	"num": 14
+}, {
+	"crmcddesc": "SHOPLIFTING - PETTY THEFT ($950 & UNDER)",
+	"num": 1180
+}, {
+	"crmcddesc": "SHOPLIFTING-GRAND THEFT ($950.01 & OVER)",
+	"num": 54
+}, {
+	"crmcddesc": "THEFT FROM MOTOR VEHICLE - GRAND ($950.01 AND OVER)",
+	"num": 1115
+}, {
+	"crmcddesc": "THEFT PLAIN - ATTEMPT",
+	"num": 96
+}, {
+	"crmcddesc": "THEFT; COIN MACHINE - ATTEMPT",
+	"num": 1
+}, {
+	"crmcddesc": "THEFT; COIN MACHINE - GRAND ($950.01 & OVER)",
+	"num": 3
+}, {
+	"crmcddesc": "THREATENING PHONE CALLS/LETTERS",
+	"num": 110
+}, {
+	"crmcddesc": "THROWING OBJECT AT MOVING VEHICLE",
+	"num": 94
+}, {
+	"crmcddesc": "TILL TAP - GRAND THEFT ($950.01 & OVER)",
+	"num": 5
+}, {
+	"crmcddesc": "UNAUTHORIZED COMPUTER ACCESS",
+	"num": 20
+}, {
+	"crmcddesc": "VANDALISM - MISDEAMEANOR ($399 OR UNDER)",
+	"num": 6917
+}, {
+	"crmcddesc": "VIOLATION OF COURT ORDER",
+	"num": 1599
+}, {
+	"crmcddesc": "WEAPONS POSSESSION/BOMBING",
+	"num": 10
+}, {
+	"crmcddesc": "ASSAULT WITH DEADLY WEAPON ON POLICE OFFICER",
+	"num": 139
+}, {
+	"crmcddesc": "BATTERY ON A FIREFIGHTER",
+	"num": 10
+}, {
+	"crmcddesc": "BUNCO; GRAND THEFT",
+	"num": 337
+}, {
+	"crmcddesc": "BUNCO; PETTY THEFT",
+	"num": 300
+}, {
+	"crmcddesc": "BURGLARY FROM VEHICLE",
+	"num": 7582
+}, {
+	"crmcddesc": "BURGLARY; ATTEMPTED",
+	"num": 960
+}, {
+	"crmcddesc": "CHILD ANNOYING (17YRS & UNDER)",
+	"num": 359
+}, {
+	"crmcddesc": "CONSPIRACY",
+	"num": 4
+}, {
+	"crmcddesc": "CRIMINAL HOMICIDE",
+	"num": 438
+}, {
+	"crmcddesc": "DISHONEST EMPLOYEE - PETTY THEFT",
+	"num": 18
+}, {
+	"crmcddesc": "DISTURBING THE PEACE",
+	"num": 53
+}, {
+	"crmcddesc": "DOCUMENT WORTHLESS ($200 & UNDER)",
+	"num": 3
+}, {
+	"crmcddesc": "FAILURE TO YIELD",
+	"num": 53
+}, {
+	"crmcddesc": "FALSE IMPRISONMENT",
+	"num": 98
+}, {
+	"crmcddesc": "FALSE POLICE REPORT",
+	"num": 16
+}, {
+	"crmcddesc": "GRAND THEFT / INSURANCE FRAUD",
+	"num": 21
+}, {
+	"crmcddesc": "HUMAN TRAFFICKING - INVOLUNTARY SERVITUDE",
+	"num": 29
+}, {
+	"crmcddesc": "INDECENT EXPOSURE",
+	"num": 162
+}, {
+	"crmcddesc": "INTIMATE PARTNER - SIMPLE ASSAULT",
+	"num": 9845
+}, {
+	"crmcddesc": "LEWD/LASCIVIOUS ACTS WITH CHILD",
+	"num": 9
+}, {
+	"crmcddesc": "ORAL COPULATION",
+	"num": 201
+}, {
+	"crmcddesc": "PANDERING",
+	"num": 35
+}, {
+	"crmcddesc": "PEEPING TOM",
+	"num": 40
+}, {
+	"crmcddesc": "PETTY THEFT - AUTO REPAIR",
+	"num": 3
+}, {
+	"crmcddesc": "PICKPOCKET; ATTEMPT",
+	"num": 1
+}, {
+	"crmcddesc": "PIMPING",
+	"num": 109
+}, {
+	"crmcddesc": "PURSE SNATCHING",
+	"num": 90
+}, {
+	"crmcddesc": "RAPE; FORCIBLE",
+	"num": 846
+}, {
+	"crmcddesc": "RESISTING ARREST",
+	"num": 285
+}, {
+	"crmcddesc": "SHOTS FIRED AT INHABITED DWELLING",
+	"num": 428
+}, {
+	"crmcddesc": "STALKING",
+	"num": 155
+}, {
+	"crmcddesc": "TELEPHONE PROPERTY - DAMAGE",
+	"num": 4
+}, {
+	"crmcddesc": "THEFT FROM MOTOR VEHICLE - PETTY ($950 & UNDER)",
+	"num": 4887
+}, {
+	"crmcddesc": "THEFT PLAIN - PETTY ($950 & UNDER)",
+	"num": 6818
+}, {
+	"crmcddesc": "THEFT-GRAND ($950.01 & OVER)EXCPT;GUNS;FOWL;LIVESTK;PROD",
+	"num": 2645
+}, {
+	"crmcddesc": "THEFT; COIN MACHINE - PETTY ($950 & UNDER)",
+	"num": 2
+}, {
+	"crmcddesc": "VEHICLE - ATTEMPT STOLEN",
+	"num": 178
+}, {
+	"crmcddesc": "VEHICLE - MOTORIZED SCOOTERS; BICYCLES; AND WHEELCHAIRS",
+	"num": 1
+}, {
+	"crmcddesc": "VEHICLE - STOLEN",
+	"num": 12991
+}, {
+	"crmcddesc": "VIOLATION OF RESTRAINING ORDER",
+	"num": 1616
+}, {
+	"crmcddesc": "VIOLATION OF TEMPORARY RESTRAINING ORDER",
+	"num": 80
+}]

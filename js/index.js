@@ -1,17 +1,21 @@
-/**
- * Created by 30947 on 2018/7/18.
- */
 $(function () {
-    char1();
-    char2();
-    char3();
-    char4();
+    // char1();
+    // char2();
+    // char3();
+    // char4();
 })
 
 //统计分析图
-function char1() {
-
+function char1(res) {
     var myChart = echarts.init($("#char1")[0]);
+    var tempdata = [];
+    res = JSON.parse(res);
+    for (var i = 0; i < res.length; i++) {
+        if (res[i].status != '') {
+            tempdata.push({ value: res[i].num, name: res[i].status })
+        }
+    }
+    console.log(tempdata)
     option = {
         tooltip: {
             trigger: 'item'
@@ -43,13 +47,7 @@ function char1() {
                 labelLine: {
                     show: false
                 },
-                data: [
-                    { value: 1048, name: 'Search Engine' },
-                    { value: 735, name: 'Direct' },
-                    { value: 580, name: 'Email' },
-                    { value: 484, name: 'Union Ads' },
-                    { value: 300, name: 'Video Ads' }
-                ]
+                data: tempdata
             }
         ]
     };
@@ -57,231 +55,185 @@ function char1() {
     window.addEventListener('resize', function () { myChart.resize(); })
 
 }
-function char2() {
-
+function char2(res) {
     var myChart = echarts.init($("#char2")[0]);
 
-    // option = {
-    //     tooltip: {
-    //         trigger: 'axis',
-    //         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-    //             type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-    //         }
-    //     },
-    //     grid: { show: 'true', borderWidth: '0' },
-    //     legend: {
-    //         data: ['行驶', '停车', '熄火', '离线'],
-    //         textStyle: {
-    //             color: '#ffffff',
+    var tempdata = [];
+    res = JSON.parse(res);
 
-    //         }
-    //     },
-
-    //     calculable: false,
-    //     xAxis: [
-    //         {
-    //             type: 'value',
-    //             axisLabel: {
-    //                 show: true,
-    //                 textStyle: {
-    //                     color: '#fff'
-    //                 }
-    //             },
-    //             splitLine: {
-    //                 lineStyle: {
-    //                     color: ['#f2f2f2'],
-    //                     width: 0,
-    //                     type: 'solid'
-    //                 }
-    //             }
-
-    //         }
-    //     ],
-    //     yAxis: [
-    //         {
-    //             type: 'category',
-    //             data: ['客运车', '危险品车', '网约车', '学生校车'],
-    //             axisLabel: {
-    //                 show: true,
-    //                 textStyle: {
-    //                     color: '#fff'
-    //                 }
-    //             },
-    //             splitLine: {
-    //                 lineStyle: {
-    //                     width: 0,
-    //                     type: 'solid'
-    //                 }
-    //             }
-    //         }
-    //     ],
-    //     series: [
-    //         {
-    //             name: '行驶',
-    //             type: 'bar',
-    //             stack: '总量',
-    //             itemStyle: { normal: { label: { show: true, position: 'insideRight' } } },
-    //             data: [320, 302, 301, 334]
-    //         },
-    //         {
-    //             name: '停车',
-    //             type: 'bar',
-    //             stack: '总量',
-    //             itemStyle: { normal: { label: { show: true, position: 'insideRight' } } },
-    //             data: [120, 132, 101, 134]
-    //         },
-    //         {
-    //             name: '熄火',
-    //             type: 'bar',
-    //             stack: '总量',
-    //             itemStyle: { normal: { label: { show: true, position: 'insideRight' } } },
-    //             data: [220, 182, 191, 234]
-    //         },
-    //         {
-    //             name: '离线',
-    //             type: 'bar',
-    //             stack: '总量',
-    //             itemStyle: { normal: { label: { show: true, position: 'insideRight' } } },
-    //             data: [150, 212, 201, 154]
-    //         }
-
-    //     ]
-    // };
+    for (var i = 0; i < res.length; i++) {
+        if (res[i].num > 10) {
+            tempdata.push({ value: res[i].num, name: res[i].crmcddesc })
+        }
+    }
+    tempdata.sort(function (a, b) {
+        return b.value - a.value//倒序
+    })
+    tempdata = tempdata.slice(0, 15)
+    var temp = []
+    var temp2 = []
+    for (var a = 0; a < tempdata.length; a++) {
+        temp.push(tempdata[a].name)
+    }
+    for (var b = 0; b < tempdata.length; b++) {
+        temp2.push(tempdata[b].value)
+    }
+    console.log(temp)
     option = {
-        title: {
-          text: 'Nightingale Chart',
-          subtext: 'Fake Data',
-          left: 'center'
+        xAxis: {
+            type: 'category',
+            data: temp
         },
-        tooltip: {
-          trigger: 'item',
-          formatter: '{a} <br/>{b} : {c} ({d}%)'
-        },
-        legend: {
-          left: 'center',
-          top: 'bottom',
-          data: [
-            'rose1',
-            'rose2',
-            'rose3',
-            'rose4',
-            'rose5',
-            'rose6',
-            'rose7',
-            'rose8'
-          ]
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: { show: true }
-          }
+        yAxis: {
+            type: 'value'
         },
         series: [
-          {
-            name: 'Radius Mode',
-            type: 'pie',
-            radius: [20, 140],
-            center: ['25%', '50%'],
-            roseType: 'radius',
-            itemStyle: {
-              borderRadius: 5
-            },
-            label: {
-              show: false
-            },
-            emphasis: {
-              label: {
-                show: true
-              }
-            },
-            data: [
-              { value: 40, name: 'rose 1' },
-              { value: 33, name: 'rose 2' },
-              { value: 28, name: 'rose 3' },
-              { value: 22, name: 'rose 4' },
-              { value: 20, name: 'rose 5' },
-              { value: 15, name: 'rose 6' },
-              { value: 12, name: 'rose 7' },
-              { value: 10, name: 'rose 8' }
-            ]
-          }
+            {
+                data: temp2,
+                type: 'bar'
+            }
         ]
-      };
+    };
     myChart.setOption(option);
     window.addEventListener('resize', function () { myChart.resize(); })
 
 }
-function char3() {
-
+function char3(res) {
     var myChart = echarts.init($("#char3")[0]);
+    var tempdata = [];
+    res = JSON.parse(res);
+    var numlist = []
+    for (var i = 0; i < 20; i++) {
+        numlist.push(0)
+    }
+    for (var i = 0; i < res.length; i++) {
+        if (res[i].timeocc < '01:15') {
+            numlist[1] += res[i].num
+        } else if (res[i].timeocc < '02:30') {
+            numlist[2] += res[i].num
+        } else if (res[i].timeocc < '03:45') {
+            numlist[3] += res[i].num
+        } else if (res[i].timeocc < '05:00') {
+            numlist[4] += res[i].num
+        } else if (res[i].timeocc < '06:15') {
+            numlist[5] += res[i].num
+        } else if (res[i].timeocc < '07:30') {
+            numlist[6] += res[i].num
+        } else if (res[i].timeocc < '08:45') {
+            numlist[7] += res[i].num
+        } else if (res[i].timeocc < '10:00') {
+            numlist[8] += res[i].num
+        } else if (res[i].timeocc < '11:15') {
+            numlist[9] += res[i].num
+        } else if (res[i].timeocc < '12:30') {
+            numlist[10] += res[i].num
+        } else if (res[i].timeocc < '13:45') {
+            numlist[11] += res[i].num
+        } else if (res[i].timeocc < '15:00') {
+            numlist[12] += res[i].num
+        } else if (res[i].timeocc < '16:15') {
+            numlist[13] += res[i].num
+        } else if (res[i].timeocc < '17:30') {
+            numlist[14] += res[i].num
+        } else if (res[i].timeocc < '18:45') {
+            numlist[15] += res[i].num
+        } else if (res[i].timeocc < '20:00') {
+            numlist[16] += res[i].num
+        } else if (res[i].timeocc < '21:15') {
+            numlist[17] += res[i].num
+        } else if (res[i].timeocc < '22:30') {
+            numlist[18] += res[i].num
+        } else if (res[i].timeocc < '23:45') {
+            numlist[19] += res[i].num
+        } else {
+            numlist[0] += res[i].num
+        }
+    }
+    // console.log(numlist)
 
     option = {
-        legend: {
-            data: ['车辆行驶数量'],
-            textStyle: {
-                color: '#ffffff',
-
-            }
-        },
-        grid: { show: 'true', borderWidth: '0' },
-
-        calculable: false,
         tooltip: {
             trigger: 'axis',
-            formatter: "Temperature : <br/>{b}km : {c}°C"
+            axisPointer: {
+                type: 'cross'
+            }
         },
-        xAxis: [
-            {
-                type: 'value',
-                axisLabel: {
-                    formatter: '{value}',
-                    textStyle: {
-                        color: '#fff'
-                    }
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            // prettier-ignore
+            data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value}'
+            },
+            axisPointer: {
+                snap: true
+            }
+        },
+        visualMap: {
+            show: false,
+            dimension: 0,
+            pieces: [
+                {
+                    lte: 6,
+                    color: 'green'
                 },
-
-                splitLine: {
-                    lineStyle: {
-                        width: 0,
-                        type: 'solid'
-                    }
+                {
+                    gt: 6,
+                    lte: 8,
+                    color: 'red'
+                },
+                {
+                    gt: 8,
+                    lte: 14,
+                    color: 'green'
+                },
+                {
+                    gt: 14,
+                    lte: 17,
+                    color: 'red'
+                },
+                {
+                    gt: 17,
+                    color: 'green'
                 }
-            }
-        ],
-        yAxis: [
-            {
-                type: 'category',
-                axisLine: { onZero: false },
-                axisLabel: {
-                    formatter: '{value} km',
-                    textStyle: {
-                        color: '#fff'
-                    }
-                },
-                splitLine: {
-                    lineStyle: {
-                        width: 0,
-                        type: 'solid'
-                    }
-                },
-                boundaryGap: false,
-                data: ['0', '10', '20', '30', '40', '50', '60', '70', '80']
-            }
-        ],
+            ]
+        },
         series: [
             {
-                name: '车辆行驶数量',
+                name: 'Electricity',
                 type: 'line',
                 smooth: true,
-                itemStyle: {
-                    normal: {
-                        lineStyle: {
-                            shadowColor: 'rgba(0,0,0,0.4)'
-                        }
-                    }
-                },
-                data: [15, 0, 20, 45, 22.1, 25, 70, 55, 76]
+                // prettier-ignore
+                data: numlist,
+                markArea: {
+                    itemStyle: {
+                        color: 'rgba(255, 173, 177, 0.4)'
+                    },
+                    data: [
+                        [
+                            {
+                                name: 'Morning Peak',
+                                xAxis: '07:30'
+                            },
+                            {
+                                xAxis: '10:00'
+                            }
+                        ],
+                        [
+                            {
+                                name: 'Evening Peak',
+                                xAxis: '17:30'
+                            },
+                            {
+                                xAxis: '21:15'
+                            }
+                        ]
+                    ]
+                }
             }
         ]
     };
@@ -290,58 +242,45 @@ function char3() {
     window.addEventListener('resize', function () { myChart.resize(); })
 
 }
-function char4() {
+function char4(res) {
 
     var myChart = echarts.init($("#char4")[0]);
+    console.log(res)
+    res=JSON.parse(res)
+    list=[]
+    for(var i=0;i<res.length;i++){
+        if(res[i].premisdesc!=""){
+            list.push({value:res[i].num,name:res[i].premisdesc})
+        }
+    }
+    console.log(list)
+    list.sort(function (a, b) {
+        return b.value - a.value
+    })
+    list=list.slice(0,10)
+    console.log(list)
 
     option = {
-        grid: { show: 'true', borderWidth: '0' },
         tooltip: {
-            trigger: 'axis',
-            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-            },
-
-            formatter: function (params) {
-                var tar = params[0];
-                return tar.name + '<br/>' + tar.seriesName + ' : ' + tar.value;
-            }
+            trigger: 'item'
         },
-
-        xAxis: [
-            {
-                type: 'category',
-                splitLine: { show: false },
-                data: ['客运车', '危险品车', '网约车', '学生校车'],
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#fff'
-                    }
-                }
-
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value',
-                splitLine: { show: false },
-                axisLabel: {
-                    show: true,
-                    textStyle: {
-                        color: '#fff'
-                    }
-                }
-            }
-        ],
+        // legend: {
+        //     orient: 'vertical',
+        //     left: 'left'
+        // },
         series: [
-
             {
-                name: '报警数量',
-                type: 'bar',
-                stack: '总量',
-                itemStyle: { normal: { label: { show: true, position: 'inside' } } },
-                data: [2900, 1200, 300, 200, 900, 300]
+                name: 'Access From',
+                type: 'pie',
+                radius: '50%',
+                data: list,
+                emphasis: {
+                    itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
             }
         ]
     };
